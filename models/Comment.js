@@ -5,7 +5,7 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    // columns defined 
+    // columns defined
     // id of comment, contents of comment, date created
     // post id of corresponding comment, commenter's user id
     id: {
@@ -13,10 +13,6 @@ Comment.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     // content of comment
     content: {
@@ -28,18 +24,18 @@ Comment.init(
       defaultValue: DataTypes.NOW,
     },
     post_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'post',
-            key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "post",
+        key: "id",
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -48,9 +44,8 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: "comment",
   }
 );
-
 
 module.exports = Comment;
