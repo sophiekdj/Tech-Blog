@@ -5,30 +5,26 @@ class Post extends Model {}
 
 Post.init(
   {
+    // columns defined
+    // post id, post title, post content, post creator user id, date created
+    // add link to comment????
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    // add post title, and contents of post, post creator's username, date created
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    content: {
       type: DataTypes.STRING,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-    },
-    // EDIT THIS???? to comments?????? comment has to be saved to a post
-    // what is datatypes.float
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
