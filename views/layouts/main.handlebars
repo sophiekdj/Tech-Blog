@@ -1,28 +1,3 @@
-<!-- <nav>
-          <Conditionally render login or logout links
-          {{#if logged_in}}
-            <a href="/profile">profile</a>
-            |
-            <button class="no-button" id="logout">logout</button>
-          {{else}}
-            <a href="/login">login</a>
-          {{/if}}
-          <add *home* and *dashboard* to the navbar buttonssss***  >
-          <WHEN I click on any other links in the navigation 
-          THEN I am prompted to either sign up or sign in>
-        </nav>
-      </header>
-      <main class="container container-fluid mt-5">
-        <Render the sub layout>
-        {{{body}}}
-      </main>
-    
-    <Render script for logged in users only>
-    {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
-  </body> -->
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -37,14 +12,14 @@
     <title>Tech Blog</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet" />
+    {{!-- <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet" /> --}}
 
     <!-- Custom styles for this template -->
     <link
       href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"
       rel="stylesheet"
     />
-    <link href="blog.css" rel="stylesheet" />
+    <link href="./../../public/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -99,8 +74,21 @@
           </nav>
         </div>
         <!-- /.blog-main -->
+<main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">From the Firehose</h3>
 
-        {{body}}
+          {{body}}
+          <!-- /.blog-post -->
+
+      </div>
+      <!-- /.row -->
+    </main>
+    <!-- /.container -->
+
+
+        
 
         <aside class="col-md-4 blog-sidebar">
           <div class="p-3 mb-3 bg-light rounded">
