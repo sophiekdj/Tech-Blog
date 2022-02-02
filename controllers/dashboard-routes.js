@@ -29,6 +29,11 @@ router.get("/", async (req, res) => {
 });
 
 // add new post
+router.get("/new", async (req, res) => {
+  res.render("new-post", {
+    layout: "dashboard",
+  });
+});
 
 // get single post?
 router.get("/post/:id", async (req, res) => {
@@ -44,31 +49,13 @@ router.get("/post/:id", async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    res.render("post", {
+    res.render("edit-post", {
       ...post,
+      layout: "dashboard",
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Use withAuth middleware to prevent access to route
-router.get("/profile", withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Post }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render("profile", {
-      ...user,
-      logged_in: true,
-    });
-  } catch (err) {
+    res.redirect("login");
     res.status(500).json(err);
   }
 });
