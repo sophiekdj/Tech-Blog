@@ -1,29 +1,29 @@
 <div class="posts">
   <article class="card">
     <h2 class="blog-post-title">
-      <a href="/post/{{post.id}}">
-        {{post.title}}</a>
+      <a href="/post/{{id}}">
+        {{title}}</a>
     </h2>
     <div class="blog-post-meta">
       Posted by
-      {{post.user.name}}
+      {{user.name}}
       on
-      {{format_date post.date_created}}
+      {{format_date date_created}}
     </div>
     <div class="card-body">
-      {{post.content}}
+      {{content}}
     </div>
   </article>
   <!-- /.blog-post -->
 
-  {{#if post.Comments}}
+  {{#if Comments}}
     <section class="card">
       <div class="card-header">
         <h3>Comments</h3>
       </div>
 
       <div class="card-body">
-        {{#each post.Comments}}
+        {{#each Comments}}
           <div>
             <p>
               {{body}}
@@ -46,7 +46,7 @@
     </div>
 
     <div class="card-body">
-      <input type="hidden" name="post-id" value="{{post.id}}" />
+      <input type="hidden" name="post-id" value="{{id}}" />
 
       <label class="form-label" for="comment-content">Comment</label>
 
